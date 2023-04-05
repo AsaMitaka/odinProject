@@ -1,0 +1,212 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr 1fr;
+  grid-template-rows: 160px 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    'aside header header'
+    'aside main main'
+    'aside main main';
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  display: grid;
+  grid-area: header;
+  grid-template-areas:
+    'headerSearchBar headerProfile'
+    'headerWelcomeLeft headerWelcomeRight';
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: 1fr 1.5fr;
+  padding: 0 30px;
+  border: 1px solid black;
+}
+
+.headerSearchbar {
+  grid-area: headerSearchBar;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchbarLabel {
+  margin-right: 10px;
+}
+
+#searchbar {
+  padding: 5px 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.headerProfile {
+  grid-area: headerProfile;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.headerProfileImg {
+  width: 50px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.headerWelcomeLeft {
+  grid-area: headerWelcomeLeft;
+  padding: 10px;
+}
+
+.headerWelcomeRight {
+  grid-area: headerWelcomeRight;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.headerWelcomeRightBtn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.aside {
+  grid-area: aside;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.asideLogo {
+  font-size: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.asideMain {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.asideMainLi {
+  list-style-type: none;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.asideSettings {
+  font-size: 20px;
+}
+
+.asideSettingsLi {
+  list-style-type: none;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0.8fr 1.2fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    'mainProjects mainProjects mainRight'
+    'mainProjects mainProjects mainRight'
+    'mainProjects mainProjects mainRight';
+  grid-area: main;
+}
+
+.mainProjects {
+  grid-area: mainProjects;
+  padding: 10px;
+}
+
+.mainProjectsBlocks {
+  display: grid;
+  grid-template-rows: auto 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 2rem 1rem;
+  margin-top: 30px;
+}
+
+.mainProject {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.mainProjectDescr {
+  margin-top: 10px;
+}
+
+.mainProjectBtns {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mainProjectBtn {
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.mainRight {
+  grid-area: mainRight;
+}
+
+.mainAnnouncement {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.mainAnnouncementBlock {
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.mainAnnouncementBlockLi {
+  list-style-type: none;
+  border-bottom: 1px solid black;
+  padding: 1rem 2rem;
+}
+
+.mainAnnouncementBlockLi:last-child {
+  border-bottom: none;
+}
+
+.mainTrending {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.mainTrendingBlock {
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.mainTrendingBlockLi {
+  list-style-type: none;
+  border-bottom: 1px solid black;
+  padding: 1rem 2rem;
+}
+
+.mainTrendingBlockLi:last-child {
+  border-bottom: none;
+}
