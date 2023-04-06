@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <ul class="header__list">
+          <li class="header__logo header__list-li">Logo</li>
+          <li class="header__list-li">
+            <input type="text" name="search" class="header__search" />
+          </li>
+          <li class="header__list-li">
+            <p>Dark mode <button class="header__darkMode-btn">mode</button></p>
+          </li>
+        </ul>
+      </header>
+      <main class="main">
+        <form class="add__book">
+          <div class="add__book-input">
+            <label for="bookName" class="add__book-label">Book Name:</label>
+            <input type="text" name="bookName" class="bookName" />
+          </div>
+          <div class="add__book-input">
+            <label for="authorName" class="add__book-label">Author Name:</label>
+            <input type="text" name="authorName" class="authorName" />
+          </div>
+          <select name="bookReaded" class="bookReaded">
+            <option value="read">Read</option>
+            <option value="not read">Not Read</option>
+          </select>
+          <button type="submit" class="add__book-btn">Submit</button>
+        </form>
+        <section class="all__books">
+          <h1>All Books</h1>
+          <div class="all__books-block"></div>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
