@@ -2,31 +2,48 @@ import mainPage from './pages/main';
 import addressPage from './pages/address';
 import menuPage from './pages/menu';
 
+const content = document.querySelector('.content');
+
+function clearContent() {
+  content.textContent = '';
+}
+
+function getPage(pageType) {
+  let page;
+  switch (pageType) {
+    case 'main':
+      page = mainPage();
+      break;
+    case 'address':
+      page = addressPage();
+      break;
+    case 'menu':
+      page = menuPage();
+      break;
+    default:
+      throw new Error(`Unknown page type: ${pageType}`);
+  }
+
+  return page;
+}
+
+function handlePages({ target }) {
+  const key = target.getAttribute('data-key');
+  if (key) {
+    const page = getPage(key);
+    renderPage(page);
+  }
+}
+
+function renderPage(page) {
+  content.innerHTML = page;
+}
+
 function init() {
-  let selected = mainPage();
-  const content = document.querySelector('.content');
-  content.innerHTML = '';
+  clearContent();
+  renderPage(mainPage());
 
-  content.addEventListener('click', function ({ target }) {
-    const key = target.getAttribute('data-key');
-    if (key) {
-      switch (key) {
-        case 'main':
-          selected = mainPage();
-          break;
-        case 'address':
-          selected = addressPage();
-          break;
-        case 'menu':
-          selected = menuPage();
-          break;
-      }
-    }
-
-    content.innerHTML = selected;
-  });
-
-  content.innerHTML = selected;
+  content.addEventListener('click', handlePages);
 }
 
 init();
