@@ -30,92 +30,83 @@
 }
 
 .main {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 12px;
-  grid-row-gap: 0px;
-  padding: 20px 0;
-  height: 600px;
-}
-
-.main__left {
-  grid-area: 1 / 1 / 6 / 3;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+}
+
+.main__selectedbar {
+  align-self: center;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.main__select {
+  padding: 5px 10px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.main__addproject {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main__addproject-input {
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.main__addproject-btn {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.main__todos {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main__todo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.main__todo-left {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  border-right: 1px solid black;
 }
 
-.main__left-projects {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.main__left-projects-title {
-  margin-bottom: 20px;
-}
-
-.projects {
-  width: 200px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 5px 10px;
-  margin: 5px 0;
+.main__todo-title {
+  margin-left: 10px;
   font-size: 16px;
+}
+
+.main__todo-btn {
+  padding: 3px 10px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.projects-btn {
-  border: none;
-  padding: 2px 5px;
-  cursor: pointer;
-  visibility: hidden;
+.main__addtodo {
+  align-self: center;
 }
 
-.projects:hover {
-  background-color: grey;
+.main__addtodo-input {
+  padding: 5px 20px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 
-.projects:hover > .projects-btn {
-  visibility: visible;
-}
-
-.main__left-addproject {
-  padding: 10px;
-}
-
-.addProject {
+.main__addtodo-btn {
   padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.main__right {
-  grid-area: 1 / 3 / 6 / 6;
-}
-
-.todos {
-  padding: 10px;
-}
-
-.todos__task {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: 1px solid black;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.done {
-  text-decoration: line-through;
-}
-
-.todos__task-btn {
-  padding: 2px 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 

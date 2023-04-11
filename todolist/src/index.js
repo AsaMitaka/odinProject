@@ -1,186 +1,160 @@
 import { header, footer } from './components/index';
 const content = document.querySelector('#content');
 
-let projects = {
+let _todoId = 4;
+let selectedProject = 'tomorrow';
+
+let proj = {
   today: [
-    {
-      title: 'New',
-      isCompleted: false,
-    },
-    {
-      title: 'New',
-      isCompleted: false,
-    },
-    {
-      title: 'New',
-      isCompleted: true,
-    },
+    { title: 'Title1', isCompleted: false, id: 1 },
+    { title: 'Title2', isCompleted: true, id: 2 },
+    { title: 'Title3', isCompleted: false, id: 3 },
   ],
-  tomorrow: [
-    {
-      title: 'New',
-      isCompleted: true,
-    },
-  ],
+  tomorrow: [{ title: 'Title1', isCompleted: false, id: 4 }],
   nextWeek: [
-    {
-      title: 'New',
-      isCompleted: true,
-    },
+    { title: 'Title1', isCompleted: false, id: 5 },
+    { title: 'Title1', isCompleted: false, id: 6 },
   ],
 };
 
-const projectsBlocks = () =>
-  Object.keys(projects)
-    .map((key) => {
-      const title = key.slice(0, 1).toUpperCase() + key.slice(1).toLowerCase();
-      return `<div class='projects' data-key='${key}'>
-        ${title}
-        <button class='projects-btn' data-key='${key}'>X</button>
-    </div>`;
+const renderSelectedBar = () => {
+  const seleteds = Object.keys(proj)
+    .map((item) => {
+      const checkeds = item === selectedProject ? 'selected' : '';
+      return `<option ${checkeds}>${item}</option>`;
     })
     .join('');
 
-const renderItems = (filter = 'today') => {
-  const filterItems = projects[filter];
-  if (!filterItems) {
-    return `<div class='todos' data-key='${filter}'></div>`;
-  }
-
-  const items = filterItems
-    .map(
-      (item) => `<div class='todos__task ${item.isCompleted ? 'done' : ''}'>
-    <p>${item.title}</p>
-    <p>${item.isCompleted ? 'True' : 'False'}</p>
-    <button class='todos__task-btn'>X</button>
-  </div>`,
-    )
-    .join('');
-
-  return `
-    <div class='todos' data-key='${filter}'>
-      ${items}
-      <form class='todos__item'>
-        <input type='text' class='todos__item-input'>
-        <button type='submit' class='todos__item-btn'>add todo</button>
-      </form>
-    </div>
-  `;
+  return `<select class='main__select'>${seleteds}</select>`;
 };
 
-function updatePage() {
-  const itemsHTML = projectsBlocks();
-  const mainLeft = document.querySelector('.main__left-projectsBlock');
-  mainLeft.innerHTML = itemsHTML;
+const renderToDoList = () => {
+  const selectedProjectTodos = proj[selectedProject];
+  if (!selectedProjectTodos) return '';
 
-  const addProject = document.querySelector('.addproject__form');
-  const allProjects = document.querySelectorAll('.projects');
-  const addTodo = document.querySelector('.todos__item');
-  const deleteProjectButtons = document.querySelectorAll('.projects-btn');
+  return selectedProjectTodos
+    .map(({ id, title, isCompleted }) => {
+      let checked = isCompleted ? 'checked' : '';
+      return `
+      <div class='main__todo' data-id=${id}>
+        <div class='main__todo-left'>
+          <input type="checkbox" class="main__todo-isCompleted" ${checked}>
+          <p class='main__todo-title'>${title}</p>
+        </div>
+        <button class='main__todo-btn'>X</button>
+      </div>`;
+    })
+    .join('');
+};
 
-  addProject.addEventListener('submit', handleAddProject);
-  allProjects.forEach((proj) => proj.addEventListener('click', handleProject));
-  addTodo.addEventListener('submit', handleAddToDo);
-  deleteProjectButtons.forEach((button) => {
-    button.addEventListener('click', handleDeleteProject);
-  });
-}
-
-function main() {
+const main = () => {
+  const todoList = renderToDoList();
+  const selectedBar = renderSelectedBar();
   return `<main class='main'>
-    <div class='main__left'>
-        <div class='main__left-projects'>
-            <h2 class='main__left-projects-title'>Projects:</h2>
-            <div class='main__left-projectsBlock'>
-            ${projectsBlocks()}
-            </div>
-        </div>
-        <div class='main__left-addproject'>
-          <form class='addproject__form'>
-            <input type='text' class='addproject__form-input'>
-            <button type='submit' class='addproject__form-btn'>Add Project</button>
-          </form>
-        </div>
+    <div class='main__selectedbar'>
+      ${selectedBar}
+      <form class='main__addproject'>
+        <input type='text' class='main__addproject-input' placeholder='add new project'>
+        <button type='submit' class='main__addproject-btn'>Add Project</button>
+      </form>
     </div>
-    <div class='main__right'>
-      ${renderItems()}
+    <div class='main__todos'>
+      ${todoList}
     </div>
-</main>`;
-}
+    <form class='main__addtodo'>
+      <input type='text' class='main__addtodo-input' placeholder='add new todo'>
+      <button type='submit' class='main__addtodo-btn'>Add</button>
+    </form>
+  </main>`;
+};
 
-function createPage() {
-  content.innerHTML = `${header()}${main()}${footer()}`;
-}
+const handleNewTodo = (e) => {
+  e.preventDefault();
+  const input = document.querySelector('.main__addtodo-input');
+  if (!input) return;
+  const title = input.value.trim();
 
-function updateItems(filter = 'today') {
-  const itemsHTML = renderItems(filter);
-  const mainRight = document.querySelector('.main__right');
-  const addTodo = document.querySelector('.todos__item');
+  const newTodo = {
+    title: title,
+    isCompleted: false,
+    id: _todoId,
+  };
+  _todoId += 1;
 
-  mainRight.innerHTML = itemsHTML;
-  addTodo.addEventListener('submit', handleAddToDo);
-}
-
-function handleProject({ target }) {
-  const dataKey = target.getAttribute('data-key');
-
-  if (dataKey) {
-    updateItems(dataKey);
-  }
-}
-
-function handleDeleteProject(event) {
-  const dataKey = event.target.getAttribute('data-key');
-  delete projects[dataKey];
+  proj = { ...proj, [selectedProject]: [...proj[selectedProject], newTodo] };
+  input.value = '';
 
   updatePage();
-}
+};
 
-function handleAddProject(e) {
+const handleDeleteToDo = (e) => {
+  const targetId = e.target.parentElement.dataset.id;
+  const newProj = {
+    ...proj,
+    [selectedProject]: proj[selectedProject].filter((item) => item.id !== Number(targetId)),
+  };
+  proj = newProj;
+
+  updatePage();
+};
+
+const handleSelect = (e) => {
+  selectedProject = e.target.value;
+  updatePage();
+};
+
+const handleIsCompleted = (e) => {
+  const targetId = e.target.parentElement.parentElement.dataset.id;
+
+  if (!proj[selectedProject]) return;
+
+  proj[selectedProject] = proj[selectedProject].map((item) => {
+    if (item.id === Number(targetId)) {
+      return {
+        ...item,
+        isCompleted: !item.isCompleted,
+      };
+    } else {
+      return item;
+    }
+  });
+};
+
+const handleNewProject = (e) => {
   e.preventDefault();
+  const input = document.querySelector('.main__addproject-input');
 
-  const inputValue = document.querySelector('.addproject__form-input');
+  if (!input) return;
+  const inputText = input.value.trim();
 
-  if (inputValue.value) {
-    projects[inputValue.value] = [];
-    inputValue.value = '';
+  proj[inputText] = [];
+  input.value = '';
 
-    updatePage();
-  }
-}
+  updatePage();
+};
 
-function handleAddToDo(event) {
-  event.preventDefault();
-  const input = document.querySelector('.todos__item-input');
-  const dataKey = document.querySelector('.todos').dataset.key;
+const updatePage = () => {
+  content.textContent = '';
+  content.innerHTML = `
+    ${header()}
+    ${main()}
+    ${footer()}
+  `;
 
-  if (input.value) {
-    const newTodo = {
-      title: input.value,
-      isCompleted: false,
-    };
-
-    projects[dataKey].push(newTodo);
-    input.value = '';
-
-    updateItems(dataKey);
-  }
-}
+  const addToDoBtn = document.querySelector('.main__addtodo');
+  addToDoBtn.addEventListener('submit', handleNewTodo);
+  const deleteToDo = document.querySelectorAll('.main__todo-btn');
+  deleteToDo.forEach((btn) => btn.addEventListener('click', handleDeleteToDo));
+  const checkedToDo = document.querySelectorAll('.main__todo-isCompleted');
+  checkedToDo.forEach((btn) => btn.addEventListener('click', handleIsCompleted));
+  const select = document.querySelector('.main__select');
+  select.addEventListener('change', handleSelect);
+  const addNewProject = document.querySelector('.main__addproject');
+  addNewProject.addEventListener('submit', handleNewProject);
+};
 
 function init() {
-  createPage();
-
-  const allProjects = document.querySelectorAll('.projects');
-  const addProject = document.querySelector('.addproject__form');
-  const addTodo = document.querySelector('.todos__item');
-  const deleteProjectButtons = document.querySelectorAll('.projects-btn');
-
-  addProject.addEventListener('submit', handleAddProject);
-  addTodo.addEventListener('submit', handleAddToDo);
-  allProjects.forEach((proj) => proj.addEventListener('click', handleProject));
-  deleteProjectButtons.forEach((button) => {
-    button.addEventListener('click', handleDeleteProject);
-  });
+  updatePage();
 }
 
 init();
