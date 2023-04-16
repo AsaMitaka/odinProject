@@ -8,20 +8,23 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="header"></header>
+    <header class="header">Weather</header>
     <main class="main">
-      <input type="text" class="main__search" />
-      <div class="main__header">
+      <input type="text" class="main__search" placeholder="input city" />
+      <div class="main__weather">
         <h1 class="main__title"></h1>
         <p class="main__title-city"></p>
-      </div>
-      <div class="main__weather">
+        <p class="main__weather-localtime"></p>
         <p class="main__weather-tempC"></p>
-        <p class="main__weather-humidity"></p>
-        <p class="main__weather-cloud"></p>
-        <p class="main__weather-visKm"></p>
       </div>
-      <div class="main__weather-img"></div>
+      <div class="main__weather-block">
+        <div>
+          <p class="main__weather-humidity"></p>
+          <p class="main__weather-cloud"></p>
+          <p class="main__weather-visKm"></p>
+        </div>
+        <div class="main__weather-img"></div>
+      </div>
     </main>
     <footer class="footer"></footer>
     <script src="script.js"></script>

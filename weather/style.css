@@ -3,3 +3,66 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  max-width: 950px;
+  margin: 0 auto;
+  background-color: darkviolet;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 0.4em;
+  color: white;
+}
+
+.main {
+  min-width: 300px;
+}
+
+.main__search {
+  margin: 20px 0;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.main__weather {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.main__title {
+  font-weight: 800;
+}
+
+.main__title-city {
+  margin-bottom: 20px;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+}
+
+.main__weather-localtime {
+  font-size: 24px;
+}
+
+.main__weather-tempC {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.main__weather-block {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: space-between;
+}
