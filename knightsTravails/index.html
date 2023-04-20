@@ -57,9 +57,21 @@
             <div class="container2__board-boardblock"></div>
           </div>
           <div class="container2__checker">
-            <button class="container2__checker-queen container2__checker-btn">Queen</button>
-            <button class="container2__checker-horse container2__checker-btn">Horse</button>
-            <button class="container2__checker-king container2__checker-btn">King</button>
+            <label class="container2__checker-label">
+              <input type="radio" name="piece" value="queen" class="container2__checker-input" />
+              <span class="container2__checker-queen container2__checker-btn">Queen</span>
+            </label>
+
+            <label class="container2__checker-label">
+              <input type="radio" name="piece" value="king" class="container2__checker-input" />
+              <span class="container2__checker-king container2__checker-btn">King</span>
+            </label>
+
+            <label class="container2__checker-label">
+              <input type="radio" name="piece" value="horse" class="container2__checker-input" />
+              <span class="container2__checker-horse container2__checker-btn">Horse</span>
+            </label>
+
             <button class="container2__checker-reset container2__checker-btn">Reset</button>
           </div>
         </div>

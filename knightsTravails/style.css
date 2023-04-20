@@ -162,7 +162,25 @@ main {
 .container2__board-boardblock {
   width: 400px;
   height: 400px;
+  display: flex;
+  flex-wrap: wrap;
   background-color: white;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.cell {
+  border: 1px solid black;
+  width: 50px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
 }
 
 .container2__checker {
@@ -172,25 +190,28 @@ main {
   flex-direction: column;
 }
 
+.container2__checker-label {
+  display: block;
+  margin-bottom: 30px;
+  align-self: center;
+}
+
 .container2__checker-btn {
   align-self: center;
-  padding: 20px 50px;
+  padding: 10px 20px;
   cursor: pointer;
-  margin-bottom: 20px;
   font-size: 20px;
   color: white;
   background-color: aquamarine;
   border: 0;
   box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 1);
+  border-radius: 5px;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
+.container2__checker-btn:focus {
+  outline: none;
 }
 
-.cell {
-  border: 1px solid black;
-  width: 50px;
-  height: 40px;
+.container2__checker .container2__checker-input:checked + span {
+  box-shadow: inset 0px 0px 0px 3px white;
 }
