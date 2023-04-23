@@ -2,6 +2,7 @@ const move = document.querySelector('.main__setting-gamemove');
 const reset = document.querySelector('.main__setting-reset');
 const battlefield1 = document.querySelector('.battlefield1');
 const battlefield2 = document.querySelector('.battlefield2');
+let userMove = true;
 
 const boardSize = 10;
 let gamerfield = new Array(boardSize).fill(null).map(() => new Array(boardSize));
@@ -54,22 +55,45 @@ function randomPlacesOfShips(field) {
   }
 }
 
+function botMove() {
+  let dX = Math.floor(Math.random() * gamerfield.length);
+  let dY = Math.floor(Math.random() * gamerfield[0].length);
+  const target = document.querySelector(`[data-rowid="${dX}"][data-cellid="${dY}"]`);
+
+  if (typeof gamerfield[dX][dY] === 'string') {
+    botMove();
+    return;
+  }
+
+  if (typeof gamerfield[dX][dY] === 'number') {
+    target.classList.remove('ship');
+    target.classList.add('hit');
+    gamerfield[dX][dY] = 'h';
+  } else {
+    target.classList.add('miss');
+    gamerfield[dX][dY] = 'm';
+  }
+
+  userMove = true;
+  checkWin();
+}
+
 function handleUserMove({ target }) {
   const dX = target.dataset.rowid;
   const dY = target.dataset.cellid;
-
+  if (!move) return;
   if (target.className.includes('miss') || target.className.includes('hit')) return;
 
   if (typeof botfield[dX][dY] === 'number') {
-    console.log('hit');
     target.classList.remove('ship');
     target.classList.add('hit');
     botfield[dX][dY] = 'h';
   } else {
-    console.log('miss');
     target.classList.add('miss');
   }
 
+  userMove = false;
+  botMove();
   checkWin();
 }
 
@@ -79,7 +103,7 @@ function checkWin() {
       row.every((cell) => cell === null || cell === undefined || typeof cell === 'string'),
     )
   ) {
-    console.log('You win!');
+    move.classList.remove('hidden');
     move.textContent = 'You win!';
     document
       .querySelectorAll('.enemycell')
@@ -89,12 +113,16 @@ function checkWin() {
       row.every((cell) => cell === null || cell === undefined || typeof cell === 'string'),
     )
   ) {
+    move.classList.remove('hidden');
     move.textContent = 'You lose!';
-    console.log('You lose!');
+    document
+      .querySelectorAll('.enemycell')
+      .forEach((cell) => cell.removeEventListener('click', handleUserMove));
   }
 }
 
 function handleReset() {
+  move.classList.add('hidden');
   gamerfield = new Array(boardSize).fill(null).map(() => new Array(boardSize));
   botfield = new Array(boardSize).fill(null).map(() => new Array(boardSize));
   randomPlacesOfShips(gamerfield);
