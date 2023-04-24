@@ -1,0 +1,11 @@
+.experienceInputsBlock {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.experienceInputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}

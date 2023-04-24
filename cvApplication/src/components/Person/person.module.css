@@ -1,0 +1,13 @@
+.person {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+}
+
+.personHeader {
+  padding: 1em 2em;
+  height: 20px;
+  font-size: 24px;
+  color: white;
+  background-color: blue;
+}
