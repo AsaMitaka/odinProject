@@ -1,0 +1,18 @@
+.cardBlock {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.cardBlock:hover {
+  transform: scale(1.1) translate(0px, -5px);
+}
+
+.cardBlockImg {
+  width: 140px;
+  margin-bottom: 5px;
+}

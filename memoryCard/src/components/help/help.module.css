@@ -1,0 +1,28 @@
+.helpBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+}
+
+.helpBtn {
+  padding: 5px 10px;
+  margin-left: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px 1px rgba(0, 0, 0, 0.8);
+}
+
+.helpBtn:hover {
+  background-color: black;
+  color: white;
+}
+
+.helpShow {
+  display: block;
+}
+
+.helpUnshow {
+  display: none;
+}

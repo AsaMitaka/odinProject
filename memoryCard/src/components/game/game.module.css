@@ -1,0 +1,8 @@
+.game {
+  margin: 0 auto;
+  max-width: 1050px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
