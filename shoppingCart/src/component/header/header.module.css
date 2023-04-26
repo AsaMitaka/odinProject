@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.headerLogo {
+  text-transform: uppercase;
+  font-size: 32px;
+  letter-spacing: 0.3em;
+}
+
+.headerBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.headerLi {
+  margin: 0 20px;
+  font-size: 24px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.headerLiActive {
+  margin: 0 20px;
+  color: red;
+  font-size: 24px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.headerLi:hover {
+  text-decoration: underline;
+}

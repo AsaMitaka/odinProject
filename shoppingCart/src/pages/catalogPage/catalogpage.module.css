@@ -1,0 +1,12 @@
+.catalog {
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.catalogBlock {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 15px;
+  padding: 20px;
+}
