@@ -8,7 +8,7 @@ const CartPage = ({ cart, handleDeleteCartItem, handleDeleteOneItem, handleAddTo
     <section className={styles.cartpage}>
       <div className={styles.cartpageHeader}>
         <h1>Cart Page</h1>
-        <h3>sum: {cartSum}</h3>
+        <h3 className={styles.cartpageHeaderSum}>sum: {cartSum}</h3>
       </div>
       <div className={styles.cartpageBlock}>
         {cart.length > 0 ? (
@@ -23,7 +23,7 @@ const CartPage = ({ cart, handleDeleteCartItem, handleDeleteOneItem, handleAddTo
           ))
         ) : (
           <div className={styles.cartpageEmpty}>
-            <h1>Cart is empty!</h1>
+            <h1 className={styles.cartpageEmptyHeader}>Cart is empty!</h1>
           </div>
         )}
       </div>

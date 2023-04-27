@@ -4,9 +4,14 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: plum;
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 1050px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }

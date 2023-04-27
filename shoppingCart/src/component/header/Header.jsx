@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.headerLogo}>Logo</div>
+      <div className={styles.headerLogo}>Stardew Valley</div>
       <div className={styles.headerBlock}>
         <NavLink
           to="/"

@@ -1,17 +1,28 @@
 .cartpage {
-  padding: 20px;
-  border: 1px solid black;
+  flex: 1;
+  padding: 10px;
+  background-color: rgb(199, 150, 87);
+  border: 5px solid rgb(97, 57, 12);
 }
 
 .cartpageHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: white;
+  padding: 20px;
+}
+
+.cartpageHeaderSum {
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgb(97, 57, 12);
 }
 
 .cartpageBlock {
-  padding: 20px 0;
-  min-height: 400px;
+  border: 5px solid rgb(97, 57, 12);
+  padding: 5px 5px;
+  margin-bottom: 20px;
 }
 
 .cartpageEmpty {
@@ -19,4 +30,10 @@
   justify-content: center;
   align-items: center;
   height: 400px;
+}
+
+.cartpageEmptyHeader {
+  color: white;
+  font-size: 40px;
+  font-weight: bolder;
 }

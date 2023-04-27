@@ -1,4 +1,6 @@
 .footer {
+  margin-top: auto;
   padding: 20px;
-  background-color: blue;
+  background-color: blanchedalmond;
+  text-align: center;
 }

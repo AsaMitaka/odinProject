@@ -1,6 +1,11 @@
 .catalog {
   padding: 20px;
-  border: 1px solid black;
+  background-color: rgb(199, 150, 87);
+}
+
+.catalogHeader {
+  color: white;
+  padding: 10px;
 }
 
 .catalogBlock {

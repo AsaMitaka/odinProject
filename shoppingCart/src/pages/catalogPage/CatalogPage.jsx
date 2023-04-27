@@ -4,7 +4,7 @@ import styles from './catalogpage.module.css';
 const CatalogPage = ({ items, handleAddToCart }) => {
   return (
     <section className={styles.catalog}>
-      <h1>Catalog</h1>
+      <h1 className={styles.catalogHeader}>Catalog</h1>
       <div className={styles.catalogBlock}>
         {items
           ? items.map((seed, index) => (
