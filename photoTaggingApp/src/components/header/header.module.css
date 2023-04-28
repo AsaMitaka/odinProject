@@ -1,0 +1,14 @@
+.header {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.headerLvl {
+  cursor: pointer;
+}
+
+.headerLvl:hover {
+  text-decoration: underline;
+}
