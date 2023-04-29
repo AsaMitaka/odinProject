@@ -1,3 +1,4 @@
+import CharactersBlock from '../charactersBlock/CharactersBlock';
 import styles from './main.module.css';
 
 const Main = ({ gameboard: { src, lvl, characters }, handleImageClicks }) => {
@@ -10,6 +11,9 @@ const Main = ({ gameboard: { src, lvl, characters }, handleImageClicks }) => {
         alt={lvl ? lvl : ''}
         onClick={() => handleImageClicks(event)}
       />
+      <div>
+        <CharactersBlock characters={characters} />
+      </div>
     </main>
   );
 };

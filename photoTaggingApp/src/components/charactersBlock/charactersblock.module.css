@@ -1,0 +1,18 @@
+.charactersBlock {
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.charBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.charBlockName {
+  align-self: center;
+}
+
+.charBlockImg {
+  width: 200px;
+}
