@@ -22,7 +22,7 @@ import yam from './assets/Yam_Seeds.png';
 import { useState } from 'react';
 import { Footer, Header } from './component';
 import { CartPage, CatalogPage, MainPage } from './pages/';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -184,31 +184,29 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <div className="wrapper">
-        <Header />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route
-            path="/catalog"
-            element={<CatalogPage items={items} handleAddToCart={handleAddToCart} />}
-          />
-          <Route
-            path="/cart"
-            element={
-              <CartPage
-                cart={cart}
-                setCart={setCart}
-                handleDeleteCartItem={handleDeleteCartItem}
-                handleDeleteOneItem={handleDeleteOneItem}
-                handleAddToCart={handleAddToCart}
-              />
-            }
-          />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <div className="wrapper">
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route
+          path="/catalog"
+          element={<CatalogPage items={items} handleAddToCart={handleAddToCart} />}
+        />
+        <Route
+          path="/cart"
+          element={
+            <CartPage
+              cart={cart}
+              setCart={setCart}
+              handleDeleteCartItem={handleDeleteCartItem}
+              handleDeleteOneItem={handleDeleteOneItem}
+              handleAddToCart={handleAddToCart}
+            />
+          }
+        />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 
