@@ -1,0 +1,4 @@
+.leftBlock {
+  display: flex;
+  flex-direction: column;
+}

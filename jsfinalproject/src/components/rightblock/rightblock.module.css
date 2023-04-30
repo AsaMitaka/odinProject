@@ -1,0 +1,4 @@
+.rightblock {
+  display: flex;
+  flex-direction: column;
+}
