@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "title": "fff",
+      "descr": "fff",
+      "id": 1
+    },
+    {
+      "title": "1",
+      "descr": "abc",
+      "id": 2
+    },
+    {
+      "title": "2",
+      "descr": "def\r\n",
+      "id": 3
+    },
+    {
+      "title": "3",
+      "descr": "ghi",
+      "id": 4
+    }
+  ]
+}
