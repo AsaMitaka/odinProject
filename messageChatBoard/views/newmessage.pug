@@ -1,0 +1,9 @@
+div(class="newmessage")
+    form(action="/new", method="POST", class="newmessage__form")
+        if error
+            p=error
+        p(class="newmessage__p") Name:
+        input(type="text", value='', name="name", class="newmessage__input" maxlength="12")
+        p(class="newmessage__p") Message: 
+        textarea(name="msg", class="newmessage__textarea", maxlength="140")
+        input(type="submit", value="Send Message", class="newmessage__submit") 

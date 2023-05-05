@@ -1,0 +1,14 @@
+doctype html 
+html 
+    head 
+        link(rel='stylesheet', href='/style.css')
+        title My page 
+    body 
+        include header 
+        if template === 'main'
+            include main
+        else if template === 'newmessage'
+            include newmessage
+        else 
+            include error
+        include footer
