@@ -1,0 +1,33 @@
+html 
+    head 
+        title #{title}
+        link(rel="stylesheet", href="/style.css")
+    body 
+        include header 
+        main(class="main")
+            include aside
+            if contentBlock === 'allAuthor'
+                include allAuthor
+            else if contentBlock === 'author'
+                include author
+            else if contentBlock === 'allBook'
+                include allBook
+            else if contentBlock === 'book'
+                include book
+            else if contentBlock === 'allGenre'
+                include allGenre
+            else if contentBlock === 'genre'
+                include genre
+            else if contentBlock === 'createAuthor'
+                include createAuthor
+            else if contentBlock === 'createBook'
+                include createBook
+            else if contentBlock === 'createGenre'
+                include createGenre
+            else if contentBlock === 'about'
+                include about
+            else if contentBlock === 'error'
+                include error
+            else
+                include main
+        include footer
