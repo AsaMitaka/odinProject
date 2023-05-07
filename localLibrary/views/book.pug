@@ -1,2 +1,10 @@
-div(class="main__block") 
+div(class="main__block")
     h1 Book
+    form(method="POST", action=`/book/${data._id}?_method=PUT`, class="main__block-form")
+        label(for="title") Title:
+        input#title(type="text", class="main__block-update", name="title", value=data.title, contenteditable=true)
+        label(for="genre") Genre:
+        input#genre(type="text", class="main__block-update", name="genre", value=data.genre.name, contenteditable=true)
+        label(for="author") Author:
+        input#author(type="text", class="main__block-update", name="author", value=data.author.name, contenteditable=true)
+        input(type="submit", value="Update", class="main__block-btn") 

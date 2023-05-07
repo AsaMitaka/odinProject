@@ -1,2 +1,7 @@
 div(class="main__block") 
     h1 All Book
+    each val in data
+        div(class="main__block-links") 
+            a(href=`/book/${val._id}`, class="main__block-link")= val.title
+            form(method="POST", action=`/book/${val._id}?_method=DELETE`)
+                button(class="main__block-deleteBtn") X

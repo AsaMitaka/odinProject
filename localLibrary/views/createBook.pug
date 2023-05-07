@@ -1,2 +1,12 @@
 div(class="main__block") 
     h1 Create Book
+    if error
+        h1=error
+    form(method="POST", action="/createbook", class="main__block-form")
+        p(class="main__block-p") Book:
+        input(type="text", name="title", class="main__block-input")
+        p(class="main__block-p") Author:
+        input(type="text", name="author", class="main__block-input")
+        p(class="main__block-p") Genre:
+        input(type="text", name="genre", class="main__block-input")
+        input(type="submit", value="Save Genre", class="main__block-btn")
