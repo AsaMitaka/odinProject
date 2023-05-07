@@ -1,12 +1,10 @@
 const express = require('express');
+
+const { indexController, aboutController } = require('../controllers/mainContollers');
+
 const route = express.Router();
 
-route.get('/', (req, res) => {
-  res.send('Index');
-});
-
-route.get('/about', (req, res) => {
-  res.send('About');
-});
+route.get('/', indexController);
+route.get('/about', aboutController);
 
 module.exports = route;
