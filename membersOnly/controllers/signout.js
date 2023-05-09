@@ -1,5 +1,5 @@
 const signoutController = (req, res) => {
-  res.send('signout');
+  res.render('layout', { title: 'Sign Out', template: 'signout' });
 };
 
 module.exports = signoutController;

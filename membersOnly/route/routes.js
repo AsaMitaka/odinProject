@@ -1,15 +1,18 @@
+const userSignInValidation = require('../validators/validators');
 const express = require('express');
 
 const mainController = require('../controllers/main');
-const signinController = require('../controllers/sign');
+const { signinController, signinRenderController } = require('../controllers/sign');
 const signoutController = require('../controllers/signout');
-const loginController = require('../controllers/login');
+const { loginController, loginRenderController } = require('../controllers/login');
 
 const route = express.Router();
 
 route.get('/', mainController);
-route.get('/signin', signinController);
+route.get('/signin', signinRenderController);
+route.post('/signin', userSignInValidation, signinController);
 route.get('/signout', signoutController);
-route.get('/login', loginController);
+route.get('/login', loginRenderController);
+route.post('/login', loginController);
 
 module.exports = route;

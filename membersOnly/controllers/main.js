@@ -1,5 +1,5 @@
 const mainController = (req, res) => {
-  res.send('Index');
+  res.render('layout', { title: 'Main', template: 'main' });
 };
 
 module.exports = mainController;
