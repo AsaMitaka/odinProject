@@ -1,0 +1,7 @@
+div(class="wrapper") 
+    div(class="main__column")
+        h1 Login
+        form(action="/login", method="POST", class="main__form")
+            input(type="text", class="main__form-input", name="username", placeholder="Login")
+            input(type="password", class="main__form-input", name="password", placeholder="Password", minlength="6", maxlength="12")
+            input(type="submit", class="main__form-btn", value="Login")

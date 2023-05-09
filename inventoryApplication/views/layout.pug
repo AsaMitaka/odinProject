@@ -1,0 +1,14 @@
+html 
+    head 
+        title=TitleName 
+        link(rel="stylesheet", href="/style.css")
+    body 
+        include header 
+        main(class="main")
+            if content == 'signup'
+                include signup
+            else if content == 'login' 
+                include login
+            else 
+                include main 
+        include footer
