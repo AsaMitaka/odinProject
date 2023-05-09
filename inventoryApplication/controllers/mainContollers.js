@@ -2,7 +2,8 @@ const User = require('../model/user');
 const passport = require('passport');
 
 const indexController = (req, res) => {
-  res.render('layout', { title: 'Index' });
+  console.log(req.user);
+  res.render('layout', { title: 'Index', content: 'main', user: req.user });
 };
 
 const signupRenderController = (req, res) => {
@@ -30,26 +31,18 @@ const loginRenderController = (req, res) => {
   res.render('layout', { title: 'Types', content: 'login' });
 };
 
-const loginController = function (req, res, next) {
-  passport.authenticate('local', function (err, user, info) {
+const loginController = passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/',
+});
+
+const logoutController = (req, res, next) => {
+  req.logout(function (err) {
     if (err) {
       return next(err);
     }
-
-    if (!user) {
-      console.log(info.message);
-      // req.flash('error', info.message);
-      return res.redirect('/login');
-    }
-
-    req.logIn(user, function (err) {
-      if (err) {
-        return next(err);
-      }
-
-      return res.redirect('/');
-    });
-  })(req, res, next);
+    res.redirect('/');
+  });
 };
 
 module.exports = {
@@ -58,4 +51,5 @@ module.exports = {
   loginRenderController,
   signupController,
   signupRenderController,
+  logoutController,
 };
