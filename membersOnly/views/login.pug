@@ -1,7 +1,9 @@
 div(class="container")
     div(class="main__center")
         h1 Login
-        form(action="/login", method=POST, class="main__form")
+        if error
+            h2= error
+        form(action="/login", method="POST", class="main__form")
             input(type="email", name="email", placeholder="email", class="main__form-input")
             input(type="password", name="password", placeholder="password", class="main__form-input")
             input(type="submit", value="Login", class="main__form-submit") 
