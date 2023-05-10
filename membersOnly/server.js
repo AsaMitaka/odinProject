@@ -29,7 +29,7 @@ app.set('view engine', 'pug');
 
 app.use('/', route);
 app.use('*', (req, res) => {
-  res.send('Error Page');
+  res.render('layout', { title: 'error page', template: 'error' });
 });
 
 app.listen(PORT, () => {

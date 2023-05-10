@@ -53,6 +53,7 @@ const signinController = async (req, res) => {
     newUser.token = token;
     newUser.password = undefined;
 
+    // res.cookie('token', token, options);
     res.status(201).json({ newUser });
     // res.redirect('/');
   } catch (error) {

@@ -1,3 +1,6 @@
 div(class="container")
-    if user 
-        p= Hi #{user}
+    div(class="main__center")
+        h1 Hi
+        p Hello, world!
+        if user 
+            p= `Hi ${user.username}`

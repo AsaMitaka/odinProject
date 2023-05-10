@@ -5,13 +5,17 @@ const { jwtExpiresIn, jwtSecret } = require('../config/config.json');
 const User = require('../model/user');
 
 const loginRenderController = (req, res) => {
+  console.log(req.session);
+  if (req.session.user) {
+    res.redirect('/');
+  }
   res.render('layout', { title: 'Login', template: 'login', error: null });
 };
 
 const loginController = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(email, password);
+
     if (!email || !password) {
       res.render('layout', {
         title: 'Login',
@@ -34,6 +38,9 @@ const loginController = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, jwtSecret, { expiresIn: jwtExpiresIn });
     user.token = token;
+
+    await user.save();
+
     user.password = undefined;
 
     const options = {
@@ -41,7 +48,6 @@ const loginController = async (req, res) => {
       httpOnly: true,
     };
 
-    req.session.user = user;
     res.cookie('token', token, options);
     res.redirect('/home');
     return;
