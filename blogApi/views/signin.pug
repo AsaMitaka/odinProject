@@ -1,0 +1,10 @@
+div(class="wrapper__center")
+    div(class="container")
+        h1 Sign In
+        if error
+            h2= error
+        form(action="/signin", method="POST", class="main__form")
+            input(type="email", name="email", class="main__form-input", placeholder="email") 
+            input(type="password", name="password", class="main__form-input", placeholder="password")
+            input(type="password", name="repassword", class="main__form-input", placeholder="re-password")
+            input(type="submit", value="sign in", class="main__form-btn")

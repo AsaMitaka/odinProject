@@ -1,0 +1,22 @@
+html 
+    head 
+        title= titlePage 
+        link(rel="stylesheet", href="/style.css")
+    body 
+        include header
+        main(class="main")
+            if content == 'error'
+                include error
+            else if content == 'login'
+                include login
+            else if content == 'signin'
+                include signin
+            else if content == 'signout'
+                include signout
+            else if content == 'profile'
+                include profile
+            else if content == 'main'
+                include main
+            else if content == 'post'
+                include post
+        include footer
