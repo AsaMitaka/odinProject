@@ -5,13 +5,18 @@ const { mainPageController } = require('../controllers/mainController');
 const { loginPageController, loginController } = require('../controllers/loginController');
 const { signinPageController, signinController } = require('../controllers/signinController');
 const { signoutPageController, signoutController } = require('../controllers/signoutController');
-const { postPageController } = require('../controllers/postController');
-const { profilePageController, postPageIdController } = require('../controllers/profileController');
+const {
+  postPageController,
+  postCreatePageController,
+  postCreateController,
+  postPageIdController,
+  postPageIdDeleteController,
+} = require('../controllers/postController');
+const { profilePageController } = require('../controllers/profileController');
 
 const signinValidator = require('../validators/signin');
 const loginValidator = require('../validators/login');
-
-route.get('/', mainPageController);
+const isPostValidator = require('../validators/post');
 
 route.get('/signin', signinPageController);
 route.post('/signin', signinValidator, signinController);
@@ -24,7 +29,11 @@ route.post('/signout', signoutController);
 
 route.get('/profile', profilePageController);
 
-route.get('/post', postPageController);
-// route.get('/post/:id', postPageIdController);
+route.get('/', postPageController);
+route.get('/post/:id', postPageIdController);
+route.delete('/post/:id', postPageIdDeleteController);
+
+route.get('/createpost', postCreatePageController);
+route.post('/createpost', isPostValidator, postCreateController);
 
 module.exports = route;

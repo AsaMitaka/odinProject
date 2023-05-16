@@ -1,0 +1,12 @@
+div(class="wrapper")
+    if error 
+        h1= error 
+    else if pageContent 
+        div(class="post")
+            h2(class="post__header")= pageContent.title 
+            p= pageContent.text 
+            form(action=`/post/${pageContent._id}?_method=DELETE`, method="POST")
+                input(type="submit", value="DELETE", class="post__btn-delete")
+            a(href="/", class="post__btn") Back 
+    else 
+        h2 Post not found

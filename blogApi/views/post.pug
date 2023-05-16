@@ -1,5 +1,10 @@
 div(class="wrapper")
-    form(action="/post", method="POST", class="main__form")
-        input(type="author", name="author", class="main__form-input") 
-        input(type="text", name="text", class="main__form-input")
-        input(type="submit", value="Create Post", class="main__form-btn")
+    div(class="main__posts")
+        h1 Posts
+        a(href="/createpost", class="main__posts-btn") Create Post 
+        if pageContent.length > 0
+            each val in pageContent
+                div(class="main__post")
+                    a(href=`/post/${val._id}`, class="main__title")= val.title
+        else 
+            p U dont have posts

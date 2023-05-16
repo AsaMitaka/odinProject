@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const user = require('../models/user');
+const User = require('../models/user');
 const { validationResult } = require('express-validator');
 
 const { jwtExpiredIn, jwtSecret, salt } = require('../config/config.json');
@@ -36,7 +36,7 @@ const signinController = async (req, res) => {
       return;
     }
 
-    const isUser = await user.findOne({ email: email });
+    const isUser = await User.findOne({ email: email });
     if (isUser) {
       res.render('layout', {
         content: 'signin',
@@ -66,7 +66,7 @@ const signinController = async (req, res) => {
 
     const hashPassword = await bcrypt.hash(password, salt);
 
-    const newUser = user.create({
+    const newUser = User.create({
       email: email,
       password: hashPassword,
     });

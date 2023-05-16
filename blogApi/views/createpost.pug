@@ -1,0 +1,9 @@
+div(class="wrapper")
+    if error 
+        h1= error
+    div(class="createform")
+        form(action="/createpost", method="POST", class="main__form")
+            input(type="text", name="title", class="main__form-input", placeholder="title", minlength="5", maxlength="50")
+            textarea(type="text", name="posttext", class="main__form-textarea", placeholder='text', minlength="1", maxlength="500")
+            input(type="submit", value="Create Post", class="main__form-btn")
+        a(href="/", class="post__btn") Back to Posts 
