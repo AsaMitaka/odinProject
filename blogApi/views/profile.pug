@@ -1,2 +1,7 @@
 div(class="wrapper")
     h1 Profile
+    if error 
+        h1= error 
+    P= pageContent.email 
+    if isUser 
+        h1= `Hello, ${pageContent.email}` 

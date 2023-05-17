@@ -10,7 +10,7 @@ const signoutController = (req, res) => {
 
   try {
     if (session) {
-      req.session = null;
+      req.session.token = null;
       res.redirect('/login');
     }
   } catch (error) {

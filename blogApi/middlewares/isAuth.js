@@ -3,7 +3,11 @@ const isAuth = (req, res, next) => {
   const { token } = session;
   try {
     if (token) {
-      next();
+      if (req.path === '/login' || req.path === '/signin') {
+        res.redirect('/');
+      } else {
+        next();
+      }
     } else {
       if (req.path === '/login' || req.path === '/signin') {
         next();

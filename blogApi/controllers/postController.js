@@ -79,8 +79,9 @@ const postPageIdController = async (req, res) => {
   const postId = req.params.id;
 
   try {
-    const post = await Post.findById(postId);
-    console.log(post);
+    const post = await Post.findById(postId)
+      .populate('comments')
+      .populate({ path: 'comments', populate: { path: 'user', select: 'email' } });
 
     if (!post) {
       res.render('layout', {
@@ -104,9 +105,13 @@ const postPageIdController = async (req, res) => {
 
 const postPageIdDeleteController = async (req, res) => {
   const postId = req.params.id;
+  const { token } = req.session;
 
   try {
-    const post = await Post.findById(postId);
+    const post = await Post.findById(postId)
+      .populate('comments')
+      .populate({ path: 'comments', populate: { path: 'user', select: 'email' } });
+    const userId = await jwt.verify(token, jwtSecret);
 
     if (!post) {
       res.render('layout', {
@@ -114,6 +119,16 @@ const postPageIdDeleteController = async (req, res) => {
         titlePage: 'Post Page',
         pageContent: post,
         error: 'Error when deleting a post, try later',
+      });
+      return;
+    }
+
+    if (post.author.toString() !== userId.toString()) {
+      res.render('layout', {
+        content: 'postId',
+        titlePage: 'Post Page',
+        pageContent: post,
+        error: 'You are not authorized to delete this post',
       });
       return;
     }
@@ -132,3 +147,5 @@ module.exports = {
   postPageIdController,
   postPageIdDeleteController,
 };
+
+// Leave a comment under posts, editing post

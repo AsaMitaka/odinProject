@@ -1,6 +1,8 @@
 div(class="wrapper__center")
     div(class="container")
-        a(href="/login") Login  
+        div(class="main__form-btns")
+            a(href="/login", class="main__form-btn-enable") Login  
+            a(href='#', class="main__form-btn-disabled") Sign In
         h1 Sign In
         if error
             h2= error
