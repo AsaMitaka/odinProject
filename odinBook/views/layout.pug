@@ -1,0 +1,17 @@
+head 
+    link(rel="stylesheet", href="style.css")
+    title= titlePage 
+body
+    include header 
+    main(class="main")
+        if contentPage == 'signin'
+            include signin 
+        else if contentPage == 'login'
+            include login
+        else if contentPage == 'signout'
+            include signout
+        else if contentPage == 'main'
+            include main
+        else if contentPage == 'error'
+            include error
+    include footer

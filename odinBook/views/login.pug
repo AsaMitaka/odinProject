@@ -1,0 +1,11 @@
+section(class="login")
+    div(class="container")
+        h2 Login 
+        if errorMsg
+            h3= errorMsg
+        form(action="/login", method="POST", class="container__form")
+            label(for="email", class="container__form-label") Email: 
+            input(type="email", name="email", class="container__form-input")
+            label(for="password", class="container__form-label") Password:
+            input(type="password", name="password", class="container__form-input") 
+            button(type="submit", class="container__form-btn") Login
