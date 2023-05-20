@@ -1,5 +1,5 @@
 head 
-    link(rel="stylesheet", href="style.css")
+    link(rel="stylesheet", href="/style.css")
     title= titlePage 
 body
     include header 
@@ -14,4 +14,10 @@ body
             include main
         else if contentPage == 'error'
             include error
+        else if contentPage == 'profile'
+            include profile
+        else if contentPage == 'post'
+            include post
+        else if contentPage == 'createpost'
+            include createpost
     include footer

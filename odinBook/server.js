@@ -44,4 +44,4 @@ app.listen(PORT, () => {
   console.log(`Server start at ${PORT}`);
 });
 
-//post, comments, user profile change password/username
+//comments, user profile change password/username

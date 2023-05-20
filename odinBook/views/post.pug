@@ -1,0 +1,13 @@
+section(class="post")
+    div(class="container")
+        h2= post.title 
+        p= post.text 
+        a(href=`/profile/${post.author._id}`)= authorName 
+        p= post.createdAt
+        form(action=`/post/${post._id}` method="POST/?_method=DELETE", class="container__form")
+            button(type="submit", class="container__form-btn")  Delete 
+        if post.comments 
+            each comment in post.comments 
+                div(class="comment")
+                    a(href=`/profile/${comment.author}`)= Comment.author
+                    p= comment.text 

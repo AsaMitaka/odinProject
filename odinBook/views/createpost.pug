@@ -1,0 +1,10 @@
+section(class="createpost")
+    div(class="section")
+        h1 Create Post 
+        if errorMsg 
+            h2= errorMsg
+        form(action="/createpost", method="POST", class="container__form")
+            label(for="title", class="container__form-label") 
+            input(type="text", name="title", class="container__form-input")
+            textarea(type="text", name="text", class="container__form-textarea")
+            button(type="submit", class="container__form-btn") Create Post 
