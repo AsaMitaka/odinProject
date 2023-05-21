@@ -1,3 +1,12 @@
 section(class="profile")
     div(class="container")
+        if errorMsg
+            h2= errorMsg
         h2 Profile
+
+        if isUser
+            h2 "Hi user"
+
+        if profileContent
+            p= profileContent.username 
+            p= profileContent.email
