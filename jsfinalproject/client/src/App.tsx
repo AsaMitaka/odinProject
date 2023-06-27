@@ -1,5 +1,5 @@
 import styles from './App.module.scss';
-import { Aside, Footer, Header } from './components';
+import { Aside, Footer, Header, InputTweet, Tweet } from './components';
 
 function App() {
   return (
@@ -10,6 +10,8 @@ function App() {
         <main className={styles.main}>
           <section className={styles.sectionSide}>
             <h2>Section</h2>
+            <InputTweet />
+            <Tweet />
           </section>
         </main>
       </div>

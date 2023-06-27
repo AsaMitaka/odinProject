@@ -11,11 +11,15 @@
   }
 
   .headerListLi {
+    padding: 2px 10px;
+    font-size: 24px;
+    font-weight: bold;
     list-style-type: none;
     cursor: pointer;
 
     &:hover {
-      color: grey;
+      background-color: black;
+      color: white;
     }
   }
 }

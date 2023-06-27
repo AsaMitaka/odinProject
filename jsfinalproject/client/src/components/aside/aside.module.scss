@@ -12,11 +12,12 @@
   .asideListLi {
     padding: 2px 10px;
     font-size: 20px;
+    font-weight: bold;
     list-style-type: none;
     cursor: pointer;
 
     &:hover {
-      background-color: grey;
+      background-color: black;
       color: white;
     }
   }
