@@ -1,0 +1,21 @@
+.header {
+  padding: 10px 20px;
+
+  .headerNav {
+  }
+
+  .headerList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .headerListLi {
+    list-style-type: none;
+    cursor: pointer;
+
+    &:hover {
+      color: grey;
+    }
+  }
+}
