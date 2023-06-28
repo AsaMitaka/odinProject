@@ -1,21 +1,15 @@
-import styles from './App.module.scss';
-import { Aside, Footer, Header, InputTweet, Tweet } from './components';
+import { Routes, Route } from 'react-router-dom';
+import { Main, Signup, Login, TweetPage } from './page';
 
 function App() {
   return (
-    <div className={styles.wrapper}>
-      <Header />
-      <div className={styles.mainBlock}>
-        <Aside />
-        <main className={styles.main}>
-          <section className={styles.sectionSide}>
-            <h2>Section</h2>
-            <InputTweet />
-            <Tweet />
-          </section>
-        </main>
-      </div>
-      <Footer />
+    <div className="w-1050 mx-auto px-20 py-10 flex flex-col h-screen">
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/:id" element={<TweetPage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 }

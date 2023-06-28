@@ -1,7 +1,5 @@
-import styles from './footer.module.scss';
-
 const Footer = () => {
-  return <footer className={styles.footer}>footer</footer>;
+  return <footer className="flex justify-center p-2">footer</footer>;
 };
 
 export default Footer;
