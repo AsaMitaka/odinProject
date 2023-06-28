@@ -4,9 +4,11 @@ const Main = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-1">
-        <Aside />
-        <main className="flex-1 p-3">
+      <div className="grid grid-cols-5">
+        <div className="col-span-1">
+          <Aside />
+        </div>
+        <main className="col-span-3 p-3">
           <section>
             <InputTweet />
             <Tweet />

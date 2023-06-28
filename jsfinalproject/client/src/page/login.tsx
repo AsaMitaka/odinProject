@@ -3,17 +3,19 @@ const Login = () => {
     <>
       <div className="flex flex-col w-64 px-5 py-2 mx-auto my-0">
         <h1 className="text-3xl mb-4">Log in to Twitter</h1>
-        <label htmlFor="" className="flex flex-col mb-3.5 text-2xl">
+        <label htmlFor="login" className="flex flex-col mb-3.5 text-2xl">
           Login
           <input
+            id="login"
             type="text"
             placeholder="Login"
             className="py-2 px-1 text-xl focus:outline-blue-600"
           />
         </label>
-        <label htmlFor="" className="flex flex-col mb-3.5 text-2xl">
+        <label htmlFor="password" className="flex flex-col mb-3.5 text-2xl">
           Password:
           <input
+            id="password"
             type="password"
             placeholder="Password"
             className="py-2 px-1 text-xl focus:outline-blue-600"

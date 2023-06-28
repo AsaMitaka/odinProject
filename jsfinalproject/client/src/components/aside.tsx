@@ -40,7 +40,7 @@ const Aside = () => {
               Verified
             </li>
           </Link>
-          <Link to="/">
+          <Link to="/profile">
             <li className="cursor-pointer font-bold p-2 mb-2 rounded-xl hover:bg-blue-600 hover:text-white">
               Profile
             </li>
