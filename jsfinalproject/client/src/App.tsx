@@ -3,7 +3,7 @@ import { Main, Signup, Login, TweetPage, Profile } from './page';
 
 function App() {
   return (
-    <div className="max-w-screen-2xl mx-auto px-20 py-10 flex flex-col h-screen">
+    <div className="max-w-screen-2xl mx-auto flex flex-col h-screen box-border">
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/:id" element={<TweetPage />} />
