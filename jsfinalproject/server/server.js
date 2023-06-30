@@ -4,9 +4,9 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const app = express();
 
-const routeMain = require('./routes/mainRoute');
 const routeAuth = require('./routes/authRoute');
 const routeUser = require('./routes/userRoute');
+const routeTweet = require('./routes/tweetRoute');
 
 const connect = () => {
   mongoose.set('strictQuery', false);
@@ -24,9 +24,9 @@ const connect = () => {
 app.use(express.json());
 app.use(cookieParser());
 
-app.use('api/', routeMain);
-app.use('api/auth', routeAuth);
-app.use('api/users', routeUser);
+app.use('/api/auth/', routeAuth);
+app.use('/api/users/', routeUser);
+app.use('/api/tweets/', routeTweet);
 
 app.listen(process.env.PORT, () => {
   connect();

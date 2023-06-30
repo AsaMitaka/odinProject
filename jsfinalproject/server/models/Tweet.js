@@ -6,12 +6,16 @@ const TweetSchema = new Schema(
       type: String,
       required: true,
     },
-    descriotion: {
+    description: {
       type: String,
       required: true,
       max: 260,
     },
     likes: {
+      type: Array,
+      defaultValue: [],
+    },
+    retweets: {
       type: Array,
       defaultValue: [],
     },

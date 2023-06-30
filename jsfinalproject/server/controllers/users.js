@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const { param } = require('../routes/mainRoute');
+const Tweet = require('../models/Tweet');
 
 const getUser = async (req, res, next) => {
   try {
@@ -40,8 +40,8 @@ const deleteUser = async (req, res, next) => {
   const { id } = req.params;
   if (id === req.user.id) {
     try {
-      const updatedUser = await User.findByIdAndDelete(id);
-
+      await User.findByIdAndDelete(id);
+      await Tweet.remove({ userId: id });
       res.status(200).json({ message: 'User delete' });
     } catch (err) {
       next(err);

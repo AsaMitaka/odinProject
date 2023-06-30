@@ -14,8 +14,8 @@ const signup = async (req, res, next) => {
       res.status(400).json({ message: 'password cant be less than 6 or more 15' });
       return;
     }
-    const salt = bcrypt.getSaltSync(10);
-    const hashPassword = bcrypt.hash(password, salt);
+    const salt = bcrypt.genSaltSync(10);
+    const hashPassword = await bcrypt.hash(password, salt);
     const newUser = new User({
       username,
       email,
